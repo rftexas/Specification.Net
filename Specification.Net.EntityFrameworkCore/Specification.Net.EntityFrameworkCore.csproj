@@ -8,5 +8,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Specification.Net\Specification.Net.csproj" />
+  </ItemGroup>
 
 </Project>
