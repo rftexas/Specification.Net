@@ -4,12 +4,15 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Authors>Ryan Freels</Authors>
+    <Company>Freels Technology</Company>
+    <PackageId>Specification.Net.EntityFrameworkCore</PackageId>
+    <Version>1.0.0</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Specification.Net\Specification.Net.csproj" />
+    <PackageReference Include="Specification.Net" Version="1.0.0" />
   </ItemGroup>
 
 </Project>
