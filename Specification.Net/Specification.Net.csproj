@@ -5,9 +5,17 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Authors>Ryan Freels</Authors>
     <Company>Freels Technology</Company>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <PackageId>Specification.Net</PackageId>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/rftexas/Specification.Net</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="..\LICENSE" Pack="true" PackagePath=""/>
+    <None Include="..\README.md" Pack="true" PackagePath=""/>
+  </ItemGroup>
 </Project>
