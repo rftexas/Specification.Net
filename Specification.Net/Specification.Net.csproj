@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Authors>Ryan Freels</Authors>
     <Company>Freels Technology</Company>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <PackageId>Specification.Net</PackageId>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
