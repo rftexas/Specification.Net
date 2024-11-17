@@ -7,9 +7,9 @@ on:
   push:
     branches: [ "main" ]
     paths: 
-      - "Specification.Net/**"
-      - "Specification.Net.Tests/**"
-      - ".github/workflows/dotnet.yml"
+      - "Specification.Net.EntityFrameworkCore/**"
+      - "Specification.Net.EntityFrameworkCore.Tests/**"
+      - ".github/workflows/dotnetef.yaml"
   pull_request:
     branches: [ "main" ]
 
@@ -27,9 +27,9 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Build
-      run: dotnet build Specification.Net
+      run: dotnet build Specification.Net.EntityFrameworkCore
     - name: Test
-      run: dotnet test --verbosity normal Specification.Net.Tests
+      run: dotnet test --verbosity normal Specification.Net.EntityFrameworCore.Tests
     - name: Publish
       if: startsWith(github.ref, 'refs/heads/main')
       run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}

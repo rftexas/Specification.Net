@@ -34,6 +34,66 @@ public class ExtensionTests : IDisposable
         Assert.Equal(2, items.Count());
     }
 
+    [Fact]
+    public async Task All_Specification()
+    {
+        var item = _context.InventoryItem.All(new LookupSpecification(1));
+        Assert.False(item);
+
+        item = await _context.InventoryItem.AllAsync(new LookupSpecification(1).Or(new LookupSpecification(2)));
+        Assert.True(item);
+    }
+
+    [Fact]
+    public async Task Any_Specification()
+    {
+        var item = _context.InventoryItem.Any(new LookupSpecification(3));
+        Assert.False(item);
+
+        item = await _context.InventoryItem.AnyAsync(new LookupSpecification(1).Or(new LookupSpecification(2)));
+        Assert.True(item);
+    }
+
+    [Fact]
+    public async Task First_Specification()
+    {
+        var error = () => _context.InventoryItem.First(new LookupSpecification(3));
+        Assert.Throws<InvalidOperationException>(error);
+
+        var item = await _context.InventoryItem.FirstAsync(new LookupSpecification(1));
+        Assert.Equal(1, item.Id);
+    }
+
+    [Fact]
+    public async Task FirstOrDefault_Specification()
+    {
+        var item = _context.InventoryItem.FirstOrDefault(new LookupSpecification(3));
+        Assert.Null(item);
+
+        item = await _context.InventoryItem.FirstOrDefaultAsync(new LookupSpecification(1));
+        Assert.Equal(1, item.Id);
+    }
+
+    [Fact]
+    public async Task Single_Specification()
+    {
+        var error = () => _context.InventoryItem.Single(new LookupSpecification(3));
+        Assert.Throws<InvalidOperationException>(error);
+
+        var item = await _context.InventoryItem.SingleAsync(new LookupSpecification(1));
+        Assert.Equal(1, item.Id);
+    }
+
+    [Fact]
+    public async Task SingleOrDefault_Specification()
+    {
+        var item = _context.InventoryItem.SingleOrDefault(new LookupSpecification(3));
+        Assert.Null(item);
+
+        item = await _context.InventoryItem.SingleOrDefaultAsync(new LookupSpecification(1));
+        Assert.Equal(1, item.Id);
+    }
+
     public void Dispose()
     {
         _context.Dispose();
