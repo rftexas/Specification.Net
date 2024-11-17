@@ -29,7 +29,7 @@ jobs:
     - name: Build
       run: dotnet build Specification.Net.EntityFrameworkCore
     - name: Test
-      run: dotnet test --verbosity normal Specification.Net.EntityFrameworCore.Tests
+      run: dotnet test --verbosity normal Specification.Net.EntityFrameworkCore.Tests
     - name: Publish
       if: startsWith(github.ref, 'refs/heads/main')
       run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
