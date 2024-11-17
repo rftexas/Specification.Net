@@ -3,10 +3,10 @@ namespace Specification.Net
 
     public static class SpecificationExtensions
     {
-        public static ISpecification<T> And<T>(this ISpecification<T> left, ISpecification<T> right) =>
+        public static Specification<T> And<T>(this Specification<T> left, Specification<T> right) =>
             left != null ? new AndSpecification<T>(left, right) : right;
 
-        public static ISpecification<T> Or<T>(this ISpecification<T> left, ISpecification<T> right) =>
+        public static Specification<T> Or<T>(this Specification<T> left, Specification<T> right) =>
             left != null ? new OrSpecification<T>(left, right) : right;
     }
 }

@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 namespace Specification.Net
 {
 
-    public abstract class Specification<T> : ISpecification<T>
+    public abstract class Specification<T>
     {
         protected readonly Func<T, bool> CompiledExpression;
         protected Specification(Expression<Func<T, bool>> expression)
@@ -18,6 +18,6 @@ namespace Specification.Net
             return CompiledExpression(item);
         }
 
-        public static ISpecification<T> Not(ISpecification<T> spec) => new NotSpecification<T>(spec);
+        public static Specification<T> Not(Specification<T> spec) => new NotSpecification<T>(spec);
     }
 }

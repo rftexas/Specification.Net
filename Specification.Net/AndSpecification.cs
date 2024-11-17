@@ -5,7 +5,7 @@ namespace Specification.Net
 
     public class AndSpecification<T> : Specification<T>
     {
-        public AndSpecification(ISpecification<T> left, ISpecification<T> right) : base(
+        public AndSpecification(Specification<T> left, Specification<T> right) : base(
             LinqExpression.Lambda<Func<T, bool>>(
                 LinqExpression.AndAlso(
                     left.Expression.Body,

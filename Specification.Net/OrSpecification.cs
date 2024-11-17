@@ -5,7 +5,7 @@ namespace Specification.Net
 
     public class OrSpecification<T> : Specification<T>
     {
-        public OrSpecification(ISpecification<T> left, ISpecification<T> right) : base(
+        public OrSpecification(Specification<T> left, Specification<T> right) : base(
             LinqExpression.Lambda<Func<T, bool>>(
                 LinqExpression.OrElse(
                     left.Expression.Body,
