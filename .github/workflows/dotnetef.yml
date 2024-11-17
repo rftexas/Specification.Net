@@ -9,7 +9,7 @@ on:
     paths: 
       - "Specification.Net.EntityFrameworkCore/**"
       - "Specification.Net.EntityFrameworkCore.Tests/**"
-      - ".github/workflows/dotnetef.yaml"
+      - ".github/workflows/dotnetef.yml"
   pull_request:
     branches: [ "main" ]
 
