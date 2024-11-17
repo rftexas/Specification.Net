@@ -38,6 +38,8 @@ jobs:
         updateAssemblyInfo: true
     - name: Test
       run: dotnet test --verbosity normal Specification.Net.EntityFrameworkCore.Tests
+    - name: package
+      run: dotnet pack -p:PackageVersion=${{env.majorMinorPatch}}
     - name: Publish
       if: startsWith(github.ref, 'refs/heads/main')
-      run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
+      run: nuget push **\Specification.Net.EntityFrameworkCore-${{env.majorMinorPatch}}.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
