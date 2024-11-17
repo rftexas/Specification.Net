@@ -30,12 +30,12 @@ jobs:
       uses: gittools/actions/gitversion/setup@v3.0.1
       with:
         versionSpec: '6.x'
+    - name: Build
+      run: dotnet build Specification.Net.EntityFrameworkCore
     - name: Determine Version
       uses: gittools/actions/gitversion/execute@v3.0.1
       with:
         updateAssemblyInfo: true
-    - name: Build
-      run: dotnet build Specification.Net.EntityFrameworkCore
     - name: Test
       run: dotnet test --verbosity normal Specification.Net.EntityFrameworkCore.Tests
     - name: Publish
